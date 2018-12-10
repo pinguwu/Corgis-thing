@@ -11,7 +11,7 @@ def render_main():
         state = request.args['states']
         madre= get_fun_fact(state)
         print(madre)
-        return render_template('index.html', states = get_state_options(states), funfact = get_fun_fact(state))
+        return render_template('index.html', states = get_state_options(states), funfact = get_fun_fact())
     except:
         return render_template('index.html', states = get_state_options(states))
 
@@ -31,8 +31,8 @@ def get_state_options(states):
 
   return options
 
-def get_fun_fact(states):
-    state = states
+def get_fun_fact():
+    state = request.args[states]
 
     with open('state_demographics.json') as list_o_things:
         info = json.load(list_o_things)
