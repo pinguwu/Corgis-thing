@@ -1,0 +1,15 @@
+
+{% extends "layout.html" %}
+{% set active_page = "MED" %}
+
+  {% block title %} Median State Household Income {% endblock %}
+
+  {% block content %}
+	<form action = '/med'>
+		<select name="states">
+			 {{ states }}
+	 </select>
+	 <button type='submit'> Submit </button>
+ </form>
+ <p> {{ funfact }} </p>
+  {% endblock %}
